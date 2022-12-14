@@ -28,7 +28,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role_id'
+        'role_id',
+        'siteweb',
+        'siege',
+        'phone',
+        'avatar',
+        'avatar_file_name',
+        'folder_path',
     ];
 
     /**

@@ -1,0 +1,32 @@
+#kt_modal_create_expedition .fieldset_contact {
+    padding: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+}
+
+#kt_modal_create_expedition .fieldset_contact legend {
+    float: none !important;
+    text-align: center !important;
+}
+
+#kt_modal_create_expedition .select_expedition:disabled,
+#kt_modal_create_expedition .select2-container--disabled .select2-selection--single {
+    cursor: not-allowed !important;
+}
+
+.flatpickr-current-month input.cur-year[disabled],
+.flatpickr-current-month input.cur-year[disabled]:hover {
+    color: var(--kt-gray-700) !important;
+    font-size: 1.1rem !important;
+}
+
+.flatpickr-current-month input.cur-year[disabled] ~ .arrowUp,
+.flatpickr-current-month input.cur-year[disabled] ~ .arrowDown {
+    display: none !important;
+}
+
+#kt_modal_create_expedition .fieldset_contact .form-floating > label {
+    padding: 1rem 1.9rem !important;
+}

@@ -45,11 +45,11 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
             'role_id'  => 2
         ]);
-        // event(new Registered($user));
+        event(new Registered($user));
 
-        // Auth::login($user);
+        Auth::login($user);
 
-        return response()->json(['type'=>'success', 'message'=>'enrégistré avec succès'],200);
-        // return redirect(RouteServiceProvider::HOME);
+        // return response()->json(['type'=>'success', 'message'=>'enrégistré avec succès'],200);
+        return redirect(RouteServiceProvider::HOME);
     }
 }

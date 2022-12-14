@@ -26,12 +26,16 @@ class RegisterController extends Controller
         //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
         //     'password' => ['required', 'confirmed', Rules\Password::defaults()],
         // ]);
-
+        if(NULL!==User::where('email',$request->email)->first())
+            return response()->json(['type'=>'failure','message'=>'ce mail est utilise par un autre utilisateur']);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role_id'  => 2
+            'role_id'  => 2,
+            'siege' =>$request->siege,
+            'siteweb' =>$request->siteweb,
+            'phone' =>$request->phone
         ]);
         $user->save();
         return response()->json(['type'=>'success', 'message'=>'enrégistré avec succès'],200);

@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Storage;
 class PostController extends Controller
 {
     public function get(){
-        $posts=Post::all();
-        return response()->json($posts,200);
+        $posts=Post::with('poster','attachedFiles')->get();
+        return $posts->toJson();
     }
     public function add(Request $request){
         $folder_path = ('user-folders'. DIRECTORY_SEPARATOR . \sha1('rmk_user_' .$request->user_id . '_dir'));

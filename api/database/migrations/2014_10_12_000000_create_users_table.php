@@ -21,6 +21,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignIdFor(Role::class);
+            $table->string('phone')->nullable();
+            $table->string('siege')->nullable();
+            $table->string('siteweb')->nullable();
+            $table->longText('avatar')->nullable();
+            $table->string('avatar_file_name')->nullable();
+            $table->string('folder_path')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

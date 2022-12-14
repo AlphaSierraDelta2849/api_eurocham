@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -50,5 +52,23 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function logUser(Request $request){
+        $user=User::where('email',$request->email)->first();
+        if($user){
+            if(Hash::check($request->password, $user->password)){
+                return response()->json(['type'=>'success','message'=>'connexion reussie','user'=>$user]);
+            }
+        }
+        return response()->json(['type'=>'failure','message'=>'connexion echouee']);
+    }
+    public function logoutUser(Request $request){
+        Auth::guard('web')->logout();
+
+        // $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        return response()->json(['type'=>'success','message'=>'deconnectee avec success']);
     }
 }
