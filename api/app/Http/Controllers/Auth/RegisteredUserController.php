@@ -47,9 +47,9 @@ class RegisteredUserController extends Controller
         ]);
         // event(new Registered($user));
 
-        // Auth::login($user);
+         Auth::login($user);
 
-        return response()->json(['type'=>'success', 'message'=>'enrégistré avec succès'],200);
+       // return response()->json(['type'=>'success', 'message'=>'enrégistré avec succès'],200);
         // return redirect(RouteServiceProvider::HOME);
     }
 }
