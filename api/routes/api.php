@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +30,10 @@ Route::post('/register', [RegisterController::class, 'addUser'])->name('user.reg
 Route::post('/login', [AuthenticatedSessionController::class, 'logUser'])->name('user.login');
 Route::post('/logout', [AuthenticatedSessionController::class, 'logoutUser'])->name('user.logout');
 Route::post('/send-mail', [PasswordResetLinkController::class, 'sendMailtoUser'])->name('user.sendMail');
+Route::get('getUser/{id}',function($id){
+    $user=User::find($id);
+    return response()->json(['user'=>$user],200);
+}
+);
 
 

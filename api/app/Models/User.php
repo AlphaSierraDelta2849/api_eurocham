@@ -56,7 +56,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function posters(){
+    public function posts(){
         return $this->hasMany(Post::class);
     }
 
@@ -67,4 +67,19 @@ class User extends Authenticatable
     {
         return (isset($this->avatar) && !empty($this->avatar));
     }
+    /**
+     * Get the user's avatar folder path.
+     *
+     * Note : This method must be called as a method with the () because it is different from the methods of Eloquent.
+     *
+     * @return string
+     */
+
+    public function avatarFolderPath() : string
+    {
+        return ((empty($this->folder_path)) ? $this->folder_path :
+            (string)($this->folder_path . DIRECTORY_SEPARATOR .
+            'media' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'avatars'));
+    }
+
 }

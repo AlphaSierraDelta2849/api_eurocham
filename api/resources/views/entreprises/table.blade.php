@@ -79,7 +79,7 @@
                 {{-- <!--end::Date--> --}}
                 {{-- <!--begin::Actions--> --}}
                 <td class="text-center">
-                    <a class="btn btn-light-info btn-sm" href="/">Voir</a>
+                    <a class="btn btn-light-info btn-sm" href="{{route('entreprise.detail',$entreprise->id)}}">Voir</a>
                 </td>
                 {{-- <!--end::Actions--> --}}
             </tr>

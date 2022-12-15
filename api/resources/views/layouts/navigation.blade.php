@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                    <img src="images/logoeurocham.png" width =100px height=100px>
+                    <img src={{URL::asset("images/logoeurocham.png")}} width =100px height=100px>
                     </a>
                 </div>
 
@@ -18,7 +18,7 @@
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="/" :active="/">
+                    <x-nav-link :href="route('listpost')" :active="request()->routeIs('listpost')">
                         Publications
                     </x-nav-link>
                 </div>
