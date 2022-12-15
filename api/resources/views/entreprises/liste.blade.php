@@ -29,25 +29,3 @@
 </div>
 {{-- @endsection --}}
 
-{{-- @section('scripts') --}}
-<script>
-    $(document).ready(function() {
-        @if (Session::has('success'))
-            toastr.options.timeOut = 7000;
-            toastr.options.closeButton = true;
-            toastr.options.progressBar = false;
-            toastr.options.showMethod = "fadeIn";
-            toastr.options.hideMethod = "fadeOut";
-            toastr.options.positionClass = "toastr-top-right";
-            toastr.options.preventDuplicates = false;
-            toastr.success("{{ Session::get('success') }}");
-        @endif
-    });
-</script>
-{{-- <script src={{URL::asset("assets/plugins/custom/datatables/datatables.bundle.js")}}></script> --}}
-{{-- <script src={{URL::asset("assets/js/widgets.bundle.js")}}></script>
-<script src={{URL::asset("assets/js/custom/widgets.js")}}></script>
-<script src={{URL::asset("assets/js/custom/utilities/modals/users-search.js")}}></script> --}}
-<script src={{URL::asset("assets/js/custom/apps/expediteurs/liste/listing.js")}}></script>
-
-{{-- @endsection --}}

@@ -11,8 +11,8 @@ const KRViewExpediteurExpeditions = (function () {
             $.fn.dataTable.ext.search.push(function (e, t, n) {
                 let a = date_start,
                     c = date_end,
-                    l = new Date(moment($(t[5]).text(), "DD/MM/YYYY")),
-                    u = new Date(moment($(t[5]).text(), "DD/MM/YYYY"));
+                    l = new Date(moment($(t[4]).text(), "DD/MM/YYYY")),
+                    u = new Date(moment($(t[4]).text(), "DD/MM/YYYY"));
                 return (
                     (null === a && null === c) ||
                     (null === a && c >= u) ||
@@ -75,11 +75,10 @@ const KRViewExpediteurExpeditions = (function () {
                 ((d_table = $(table).DataTable({
                     info: !1,
                     order: [],
-                    pageLength: 10,
+                    pageLength: 5,
                     columnDefs: [
-                        { orderable: !1, targets: 2 },
+                        { orderable: !1, targets: 1 },
                         { orderable: !1, targets: 3 },
-                        { orderable: !1, targets: 5 },
                     ],
                     responsive: true
                 })).on("draw", function () {

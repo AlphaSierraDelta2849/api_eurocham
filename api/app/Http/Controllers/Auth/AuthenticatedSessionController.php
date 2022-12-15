@@ -55,7 +55,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     public function logUser(Request $request){
-        $user=User::where('email',$request->email)->first();
+        $user=User::with('posters')->where('email',$request->email)->first();
         if($user){
             if(Hash::check($request->password, $user->password)){
                 return response()->json(['type'=>'success','message'=>'connexion reussie','user'=>$user]);

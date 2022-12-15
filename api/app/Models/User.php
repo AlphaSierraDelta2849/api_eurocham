@@ -56,11 +56,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getPosters(){
+    public function posters(){
         return $this->hasMany(Post::class);
     }
 
-    public function getRole(){
+    public function role(){
         return $this->hasOne(Role::class,'id','role_id');
+    }
+    public function hasAvatar() : bool
+    {
+        return (isset($this->avatar) && !empty($this->avatar));
     }
 }

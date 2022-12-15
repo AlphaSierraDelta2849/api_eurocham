@@ -1,3 +1,5 @@
+<x-app-layout>
+
 <html>
 
 <head>
@@ -23,8 +25,6 @@
 </head>
 
 <body>
-    <x-app-layout>
-
         {{-- <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
@@ -33,9 +33,9 @@
                     </div>
                 </div>
             </div> --}}
-        <div class="d-flex flex-row flex-column-fluid">
-            <div class="d-flex flex-row-fluid bg-dark flex-center">
-                <span class="text-white">@include('entreprises.liste')</span>
+        <div class="d-flex flex-xxl flex-row flex-column-fluid mt-10">
+            <div class="d-flex flex-row-fluid flex-row-auto flex-center">
+                @include('entreprises.liste')
             </div>
 
             {{-- <div class="d-flex flex-row-auto w-200px bg-warning flex-center">
@@ -43,8 +43,34 @@
                 </div> --}}
         </div>
 
-    </x-app-layout>
 
 </body>
+{{-- @section('scripts') --}}
+<script language="text/javascript">
+    $(document).ready(function() {
+        @if (Session::has('success'))
+            toastr.options.timeOut = 7000;
+            toastr.options.closeButton = true;
+            toastr.options.progressBar = false;
+            toastr.options.showMethod = "fadeIn";
+            toastr.options.hideMethod = "fadeOut";
+            toastr.options.positionClass = "toastr-top-right";
+            toastr.options.preventDuplicates = false;
+            toastr.success("{{ Session::get('success') }}");
+        @endif
+    });
+</script>
+<script>
+    var hostUrl = "assets/";
+</script>
+{{-- begin::Global Javascript Bundle(used by all pages) --}}
+<script src={{URL::asset("assets/plugins/global/plugins.bundle.js")}}></script>
+<script src={{URL::asset("assets/js/scripts.bundle.js")}}></script>
+{{-- end::Global Javascript Bundle --}}
 
+{{-- begin::Page Vendors Javascript(used by this page) --}}
+<script src={{URL::asset("assets/plugins/custom/datatables/datatables.bundle.js")}}></script>
+<script type="text/javascript" src={{URL::asset("assets/js/custom/apps/expediteurs/liste/listing.js")}}></script>
 </html>
+</x-app-layout>
+
