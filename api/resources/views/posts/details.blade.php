@@ -14,10 +14,10 @@
         <body>
                     <div class="row">
                         <div class="col s12 m8 offset-m2">
-                        <h2 class="header center">titre du poste</h2>
+                        <h2 class="header center">{{$a->titre}}</h2>
                         <div class="card horizontal hoverable">
                           <div class="card-image">
-                            <img src="images/image.jpeg">
+                          <img src="images/image.jpeg">
                           </div>
                           <div class="card-stacked">
                             <div class="card-content">
@@ -25,11 +25,11 @@
                                 <tbody>
                                   <tr>
                                     <td>Nom du posteur</td>
-                                    <td><strong>Sas</strong></td>
+                                    <td><strong>{{$a->user_id}}</strong></td>
                                   </tr>
                                   <tr>
                                     <td>Contenu</td>
-                                    <td><p>hgjhjdfvhjnchjdslksk;hhgkjkvjjjjkvkhjjkvjk</p></td>
+                                    <td><p>{{$a->contenu}}</p></td>
                                   </tr>
                                   <tr>
                                     <td>Avatar</td>
@@ -49,7 +49,7 @@
                               </table>
                             </div>
                             <div class="card-action">
-                              <a href="{{ route('dashboard') }}">Retour</a>
+                              <a href="{{ route('dashboard') }}">Retour </a>
                             
                             </div>
                           </div>

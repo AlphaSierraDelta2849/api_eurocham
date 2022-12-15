@@ -28,15 +28,16 @@ class PostController extends Controller
     public function listpost()
     {
         //
-        $p = Post ::all();
-        return view('posts.list',compact('p'));
+        $a= Post ::all();
+        return view('posts.list',compact('a'));
     }
     
-    public function detailpost()
+    public function detailpost($id)
     {
         //
-        $p = Post ::all();
-        return view('posts.details',compact('p'));
+       $a=Post ::find($id);
+       return view('posts.details',compact('a'));
+       
     }
 
     public function search()

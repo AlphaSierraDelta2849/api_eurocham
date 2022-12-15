@@ -16,20 +16,24 @@
         <body>
               <h1 style="text-align:center">Liste des Posts</h1>
 
+              @foreach($a as $as)
             <div class="row">
-              <div class="col s4 m3" @foreach($a as $as)>
-                <div class="card">
-                  <div class="card-image">
-                    <img src="images/image.jpeg">
-                  </div>
-                  <div class="card-content" >
-                  <h5 class="card-title">titre:text</h5>
-                  <p class="card-text">Contenuhjkkjkhkjjjjjmbbbb</p>
-                   <h6>Nom du posteur</h6>
-                  <a href="#" class="btn btn-primary">Plus d info</a>
-                  </div>
-                </div>
+          
+                <div class="col s4 m3" >
+                    <div class="card">
+                    <div class="card-image">
+                        <img src="images/image.jpeg">
+                    </div>
+                    <div class="card-content" >
+                    <h5 class="card-title">{{$as->titre}}</h5>
+                    <p class="card-text">{{$as->contenu}}</p>
+                    <h6>Nom du posteur</h6>
+                    <a href="detailpost" class="btn btn-primary">Plus d info</a>
+                    </div>
+                    </div>
+            
               </div>
+              @endforeach
 
              
         </body>
