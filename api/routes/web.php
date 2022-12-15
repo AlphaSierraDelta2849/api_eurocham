@@ -31,4 +31,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-Route::get('/listpost', [PostController::class,'index'])->name('index');
+
+//--Routes Posts-----
+Route::get('/listpost', [PostController::class,'listpost'])->name('listpost');
+Route::get('/detailpost', [PostController::class,'detailpost'])->name('detailpost');
+Route::get('/searchpost', [PostController::class, 'search'])->name('searchpost');

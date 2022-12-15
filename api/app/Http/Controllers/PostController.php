@@ -25,11 +25,27 @@ class PostController extends Controller
         return response()->json(['success'=>'true','message'=>'post ajouté avec succès'],200);
     }
 
-    public function index()
+    public function listpost()
     {
         //
         $p = Post ::all();
-        return view('post.index',compact('p'));
+        return view('posts.list',compact('p'));
+    }
+    
+    public function detailpost()
+    {
+        //
+        $p = Post ::all();
+        return view('posts.details',compact('p'));
+    }
+
+    public function search()
+    {
+        //
+         $search_text = $_GET['query'];
+        $a = Post::where('titre','LIKE', '%'.$search_text.'%')->get();
+
+        return view('posts.search',compact('a'));
     }
 
 }
