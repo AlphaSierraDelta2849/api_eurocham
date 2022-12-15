@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="/css/accueil.css" />
+        <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css"/>
+        <script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 
         <!-- Styles -->
         <style>

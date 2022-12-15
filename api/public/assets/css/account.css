@@ -1,0 +1,23 @@
+#user_account_menu {
+    box-shadow: 0 3px 20px rgb(89 105 129 / 30%),
+                0 1px 2px rgb(0 0 0 / 5%),
+                0 0 0 1px rgb(89 105 129 / 10%) !important;
+}
+
+#user_account_menu .menu-item:first-child .menu-link {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+#user_account_menu .menu-item:last-child .menu-link {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+#user_account_menu .menu-item:not(:first-child):not(:last-child) .menu-link {
+    border-radius: 0 !important;
+}
+
+.blockui .blockui-overlay {
+    position: fixed !important;
+}

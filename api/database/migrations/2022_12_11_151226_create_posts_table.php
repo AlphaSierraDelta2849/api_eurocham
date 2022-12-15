@@ -18,9 +18,6 @@ return new class extends Migration
             $table->id();
             $table->string('titre');
             $table->longText('contenu');
-            $table->longText('avatar')->nullable();
-            $table->string('avatar_file_name')->nullable();
-            $table->string('folder_path')->unique();
             $table->timestamps();
             $table->foreignIdFor(User::class);
         });

@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +20,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (null !== ($user = Auth::user())) {
+        return view('dashboard');
+    } else {
+        return redirect()->route('login');
+    }
 });
 
 Route::get('/dashboard', function () {
@@ -25,14 +32,23 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/listpost', [PostController::class, 'listpost'])->name('listpost');
+    Route::get('detailpost/{id}', [PostController::class,'detailpost'])->name('detailpost');
+    Route::get('/searchpost', [PostController::class, 'search'])->name('searchpost');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('entreprises', function () {
+        $entreprises = User::where('role_id', 2)->get();
+        return view('entreprises', compact('entreprises'));
+    })->name('entreprises');
+    Route::get('entreprise/{id}', function ($id) {
+        $entreprise = User::where('id', $id)->first();
+        return view('detail_entreprise', compact('entreprise'));
+    })->name('entreprise.detail');
+    Route::post('/updateProfile', [ProfileController::class, 'updateEntreprise'])->name('updateProfile');
+    
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-//--Routes Posts-----
-Route::get('/listpost', [PostController::class,'listpost'])->name('listpost');
-Route::get('detailpost/{id}', [PostController::class,'detailpost'])->name('detailpost');
-Route::get('/searchpost', [PostController::class, 'search'])->name('searchpost');

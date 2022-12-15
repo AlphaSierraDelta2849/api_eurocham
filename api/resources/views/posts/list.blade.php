@@ -10,14 +10,13 @@
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
           <link rel="stylesheet" type="text/css" id="applicationStylesheet" href="/css/connexion.css" />
-
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
             <title>Post List</title>
         </head>
        <body>
-       <div class="test">
-             <form class="form-inline my-2 my-lg-0" type="get" action="{{route('searchpost')}}" >
+            <div class ="test">
+              <form class="form-inline my-2 my-lg-0" type="get" action="{{route('searchpost')}}">
                 <input class="form-control mr-sm-2" name="query" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="material-icons">search</i></button>
               </form>

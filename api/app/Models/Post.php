@@ -11,13 +11,14 @@ class Post extends Model
     protected $fillable = [
         'titre',
         'contenu',
-        'avatar',
-        'avatar_file_name',
-        'folder_path',
         'user_id'
     ];
 
-    public function getPoster(){
+    public function poster(){
         return $this->hasOne(User::class, 'id','user_id');
+    }
+
+    public function attachedFiles(){
+        return $this->hasMany(AttachedFiles::class);
     }
 }

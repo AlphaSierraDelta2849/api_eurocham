@@ -1,0 +1,3 @@
+::-ms-reveal {          /* masquer l'oeil sur les entrées de mot de passe sous Microsoft Edge */
+    display: none;
+}
