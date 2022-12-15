@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
         return view('detail_entreprise', compact('entreprise'));
     })->name('entreprise.detail');
     Route::post('/updateProfile', [ProfileController::class, 'updateEntreprise'])->name('updateProfile');
+    Route::post('/updatePassword', [ProfileController::class, 'updateEmail'])->name('updateEmail');
+    Route::post('/updateEmail', [ProfileController::class, 'updatePassword'])->name('updatePassword');
     
 });
 

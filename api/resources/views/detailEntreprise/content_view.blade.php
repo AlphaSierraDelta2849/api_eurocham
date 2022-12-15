@@ -556,13 +556,13 @@
                     <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                         <!--begin::Form-->
                         <form id="kt_modal_update_password_form" class="form"
-                            action="/" method="POST">
+                            action="{{route('updatePassword')}}" method="POST">
                             @csrf
-                            <input type="hidden" name="phone" value="{{ $entreprise->id }}">
+                            <input type="hidden" name="email" value="{{ $entreprise->email }}">
                             <!--begin::Input group=-->
                             <div class="fv-row mb-10">
-                                <label class="required form-label fs-6 mb-2">Current
-                                    Password</label>
+                                <label class="required form-label fs-6 mb-2">Mot de passe
+                                    Actuel</label>
                                 <input class="form-control form-control-lg form-control-solid" type="password"
                                     placeholder="" name="current_password" autocomplete="off" />
                             </div>
@@ -572,8 +572,8 @@
                                 <!--begin::Wrapper-->
                                 <div class="mb-1">
                                     <!--begin::Label-->
-                                    <label class="form-label fw-semibold fs-6 mb-2">New
-                                        Password</label>
+                                    <label class="form-label fw-semibold fs-6 mb-2">Nouveau
+                                        mot de passe</label>
                                     <!--end::Label-->
                                     <!--begin::Input wrapper-->
                                     <div class="position-relative mb-3">
@@ -605,16 +605,15 @@
                                 <!--end::Wrapper-->
                                 <!--begin::Hint-->
                                 <div class="text-muted">
-                                    Use 8 or more characters with a mix of letters,
-                                    numbers & symbols.
+                                    Utiliser au moins 8 caractères.
                                 </div>
                                 <!--end::Hint-->
                             </div>
                             <!--end::Input group=-->
                             <!--begin::Input group=-->
                             <div class="fv-row mb-10">
-                                <label class="form-label fw-semibold fs-6 mb-2">Confirm New
-                                    Password</label>
+                                <label class="form-label fw-semibold fs-6 mb-2">Confirmer nouveau
+                                    mot de passe</label>
                                 <input class="form-control form-control-lg form-control-solid" type="password"
                                     placeholder="" name="new_password_confirmation" autocomplete="off" />
                             </div>
@@ -626,8 +625,8 @@
                                     Discard
                                 </button>
                                 <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                                    <span class="indicator-label">Submit</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label">Sauvegarder</span>
+                                    <span class="indicator-progress">Patientez svp...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                             </div>
@@ -651,7 +650,7 @@
                     <!--begin::Modal header-->
                     <div class="modal-header">
                         <!--begin::Modal title-->
-                        <h2 class="fw-bold">Modifier numéro de Téléphone</h2>
+                        <h2 class="fw-bold">Modifier email</h2>
                         <!--end::Modal title-->
                         <!--begin::Close-->
                         <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
@@ -675,7 +674,7 @@
                     <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                         <!--begin::Form-->
                         <form id="kt_modal_update_phone_form" class="form"
-                            action="/" method="POST">
+                            action="{{route('updateEmail')}}" method="POST">
                             @csrf
                             <!--begin::Notice-->
                             <!--begin::Notice-->
@@ -701,7 +700,7 @@
                                     <!--begin::Content-->
                                     <div class="fw-semibold">
                                         <div class="fs-6 text-gray-700">
-                                            Indiquer un numéro valide.
+                                            Veuillez indiquer un mail valide.
                                         </div>
                                     </div>
                                     <!--end::Content-->
@@ -714,25 +713,25 @@
                             <div class="fv-row mb-7">
                                 <!--begin::Label-->
                                 <label class="fs-6 fw-semibold form-label mb-2">
-                                    <span class="required">Numéro</span>
+                                    <span class="required">Email</span>
                                 </label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input class="form-control form-control-solid" placeholder="" name="profile_phone"
-                                    value="{{ $entreprise->phone }}" />
+                                <input class="form-control form-control-solid" placeholder="" name="new_email"
+                                    value="{{ $entreprise->email }}" />
                                 <!--end::Input-->
-                                <input type="hidden" name="old_phone" value="{{ $entreprise->id }}">
+                                <input type="hidden" name="old_email" value="{{ $entreprise->email }}">
                             </div>
                             <!--end::Input group-->
                             <!--begin::Actions-->
                             <div class="text-center pt-15">
                                 <button type="reset" class="btn btn-light me-3"
                                     data-kt-users-modal-action="cancel">
-                                    Discard
+                                    Revenir
                                 </button>
                                 <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                                    <span class="indicator-label">Submit</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label">Sauvegarder</span>
+                                    <span class="indicator-progress">Patientez svp...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                             </div>

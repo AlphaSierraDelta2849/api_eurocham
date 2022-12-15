@@ -151,4 +151,38 @@ class ProfileController extends Controller
             }
         }
     }
+    public function updatePassword(Request $request){
+        $email = $request->email;
+        $user = User::where('email', $email)->first();
+
+        // Vérification du mot de passe actuel.
+        
+        if(!Hash::check($request['current_password'], $user->password)){
+            return redirect()->back()->withErrors(['Le mot de passe saisi est incorrect !']);
+        }
+
+        // Mis à jour du mot de passe.
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect()->back()->with(['success' => 'Votre mot de passe à été mis à jour avec succès !']);
+    }
+    public function updateEmail(Request $request){
+        $email = $request->old_email;
+        $user = User::where('email', $email)->first();
+
+        // Vérification du nouveau mail.
+        
+        if(NULL===!User::where('email',$request->new_email)->first()){
+            return redirect()->back()->withErrors(['Le mail saisi est déjà utilisé par un autre utilisateur !']);
+        }
+
+        // Mis à jour du mot de passe.
+
+        $user->email = $request->new_email;
+        $user->save();
+
+        return redirect()->back()->with(['success' => 'Votre mail à été mis à jour avec succès !']);
+    }
 }
