@@ -25,4 +25,11 @@ class PostController extends Controller
         return response()->json(['success'=>'true','message'=>'post ajouté avec succès'],200);
     }
 
+    public function index()
+    {
+        //
+        $p = Post ::all();
+        return view('post.index',compact('p'));
+    }
+
 }

@@ -1,8 +1,10 @@
 <?php
 
+namespace App\Http\Controllers;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +19,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (null !== ($user = Auth::user())) {
-                return view('admin.dashboard');
+                return view('dashboard');
     } else {
         return redirect()->route('login');
     }
 });
 
 Route::get('/dashboard', function () {
-    return view('admin.dashboard');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -34,3 +36,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::get('/listpost', [PostController::class,'index'])->name('index');

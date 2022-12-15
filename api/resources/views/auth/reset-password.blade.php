@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            <img src="images/logoeurocham.png" width =100px height=100px>
             </a>
         </x-slot>
 
@@ -39,7 +39,7 @@
 
             <div class="flex items-center justify-end mt-4">
                 <x-primary-button>
-                    {{ __('Reset Password') }}
+                    {{ __('Reinitialiser le mot passe') }}
                 </x-primary-button>
             </div>
         </form>
