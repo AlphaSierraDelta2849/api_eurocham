@@ -2,7 +2,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-              <img src="images/logoeurocham.png" width =100px height=100px >
+              <img src="{{URL::asset('images/logoeurocham.png')}}" width =100px height=100px >
             </a>
         </x-slot>
 

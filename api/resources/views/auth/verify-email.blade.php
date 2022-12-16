@@ -2,17 +2,17 @@
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-            <img src="images/logoeurocham.png" width =100px height=100px >
+            <img src={{URL::asset("images/logoeurocham.png")}} width =100px height=100px >
             </a>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            {{ __('Merci de votre inscription! Avant de commencer, pourriez-vous vérifier votre adresse e-mail en cliquant sur le lien que nous venons de vous envoyer par e-mail? Si vous n avez pas reçu le mail, nous vous en enverrons volontiers un autre.') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')
             <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                {{ __('Un nouveau lien de vérification a été envoyé à l’adresse e-mail que vous avez fournie lors de l’inscription.') }}
             </div>
         @endif
 
