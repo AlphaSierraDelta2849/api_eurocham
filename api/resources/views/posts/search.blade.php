@@ -12,32 +12,33 @@
 
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <title>Post List</title>
-    </head>
+            <title>Post List</title>
+        </head>
+        <body>
+              <h1 style="text-align:center">Liste des Posts</h1>
 
-    <body>
-        <h1 style="text-align:center">Liste des Posts</h1>
-
-        <div class="row">
-            @foreach ($a as $as)
-                <div class="col s4 m3">
+        @foreach($a as $as)
+            <div class="row">
+          
+                <div class="col s4 m3" >
                     <div class="card">
-                        <div class="card-image">
-                            <img src="images/image.jpeg">
-                        </div>
-                        <div class="card-content">
-                            <h5 class="card-title">titre:text</h5>
-                            <p class="card-text">Contenuhjkkjkhkjjjjjmbbbb</p>
-                            <h6>Nom du posteur</h6>
-                            <a href="#" class="btn btn-primary">Plus d info</a>
-                        </div>
+                    <div class="card-image">
+                        <img src="images/image.jpeg">
                     </div>
-                </div>
-                @endforeach
+                    <div class="card-content" >
+                    <h5 class="card-title">{{$as->titre}}</h5>
+                    <p class="card-text">{{$as->contenu}}</p>
+                    <h6>Nom du posteur</h6>
+                    <a href="detailpost/{{ $as['id'] }}" class="btn btn-primary">Plus d info</a>
+                    </div>
+                    </div>
+            
+              </div>
+              @endforeach
 
 
-    </body>
-
-    </html>
-
+             
+        </body>
+  </html>
+        
 </x-app-layout>

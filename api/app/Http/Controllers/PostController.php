@@ -32,22 +32,22 @@ class PostController extends Controller
         return view('posts.list',compact('a'));
     }
     
-    public function detailpost()
+    public function detailpost($id)
     {
         //
-        $p = Post ::all();
-        return view('posts.details',compact('p'));
+       $a=Post ::find($id);
+       return view('posts.details',compact('a'));
+       
     }
 
     public function search()
     {
         //
          $search_text = $_GET['query'];
-        $a = Post::where('titre',$search_text)->get();
-        echo $search_text;
+         $a = Post ::where('titre','LIKE', '%'.$search_text.'%')->get();
+        return view('posts.search',compact('a'));
 
-
-        return redirect()->back()->with(compact('a'),compact('search_text'));
+        
     }
 
 }
