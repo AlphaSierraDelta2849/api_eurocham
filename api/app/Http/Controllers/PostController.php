@@ -14,14 +14,13 @@ class PostController extends Controller
         return $posts->toJson();
     }
     public function add(Request $request){
-        $folder_path = ('user-folders'. DIRECTORY_SEPARATOR . \sha1('rmk_user_' .$request->user_id . '_dir'));
+        $path = Storage::putFile('image', $request->avatar);
         $post=Post::create([
             'titre' => $request->title,
             'contenu' => $request->content,
-            'folder_path' => $folder_path,
+            'avatar' => $path,
             'user_id' => $request->user_id
         ]);
-
         return response()->json(['success'=>'true','message'=>'post ajouté avec succès'],200);
     }
 

@@ -147,7 +147,7 @@
                                 </td>
                                 <!--end::Date=-->
                                 <td>
-                                    <a href="/">
+                                    <a href="{{route('detailpost',$post->id)}}">
                                     <button class="btn btn-sm btn-light-success">Voir</button></a>
                                 </td>
                             </tr>

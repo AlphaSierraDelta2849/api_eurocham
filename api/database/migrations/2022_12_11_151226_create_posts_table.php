@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->string('titre');
             $table->longText('contenu');
+            $table->longText('avatar');
             $table->timestamps();
             $table->foreignIdFor(User::class);
         });
